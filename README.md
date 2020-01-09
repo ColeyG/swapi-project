@@ -1,3 +1,3 @@
-# Default
+# Swapi Project
 
-Default project to copy & paste.
+Star wars API project for MMED 6007 - Advanced Web Tech
