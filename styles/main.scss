@@ -1,1 +1,43 @@
 @import "./cold-lib.scss";
+@import "../node_modules/bulma/bulma.sass";
+
+$white: #ffffff;
+$yellow: #fcca46;
+$orange: #fe7f2d;
+$indigo: #233d4d;
+$green: #a1c181;
+$teal: #619b8a;
+
+@mixin calistoga($color: $black, $size: 12pt, $weight: normal) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  font-family: "Calistoga", cursive;
+}
+
+@mixin roboto($color: $black, $size: 12pt, $weight: normal) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2 {
+  @include calistoga($color: $yellow, $size: 42pt);
+}
+
+.navbar {
+  background-color: $indigo;
+  .navbar-item {
+    color: $white;
+    &:hover {
+      background-color: $teal;
+      color: $yellow;
+    }
+  }
+}
+
+html {
+  overflow-y: auto;
+}
