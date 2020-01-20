@@ -1,6 +1,7 @@
 @import "./cold-lib.scss";
 @import "../node_modules/bulma/bulma.sass";
 
+$black: #16161d;
 $white: #ffffff;
 $yellow: #fcca46;
 $orange: #fe7f2d;
@@ -20,6 +21,10 @@ $teal: #619b8a;
   font-size: $size;
   font-weight: $weight;
   font-family: "Roboto", sans-serif;
+}
+
+html {
+  background-color: $black;
 }
 
 h1,
