@@ -33,7 +33,7 @@ $teal: #619b8a;
 }
 
 html {
-  background-image: url(../images/background.jpg);
+  // background-image: url(../images/background.jpg);
   background-size: cover;
   overflow-y: auto;
 }
@@ -55,7 +55,7 @@ h2 {
 }
 
 .loading {
-  opacity: 1;
+  opacity: 0;
   position: sticky;
   pointer-events: none;
   z-index: 40;
@@ -120,4 +120,17 @@ h2 {
 }
 .right-content {
   width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.poster {
+  width: 75%;
+  margin: 20px;
+  cursor: pointer;
+}
+.loading-gif {
+  width: 50%;
+  margin: 30px;
 }
