@@ -23,6 +23,15 @@ $teal: #619b8a;
   font-family: "Roboto", sans-serif;
 }
 
+@keyframes flipIn {
+  0% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 html {
   background-image: url(../images/background.jpg);
   background-size: cover;
@@ -86,21 +95,29 @@ h2 {
 }
 
 .primary-content {
-  min-height: 80vh;
-  width: 50%;
-  background-color: rgba($black, 0.5);
+  width: 100%;
   overflow-y: auto;
-  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
 }
 .content-cards {
-  width: 100%;
+  background-color: rgba($black, 0.5);
+  backdrop-filter: blur(8px);
+  width: 50%;
+  height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
   .card {
+    animation: 0.2s ease-out 0s 1 flipIn;
     max-width: 300px;
     margin: 10px;
   }
+}
+.right-content {
+  width: 50%;
 }

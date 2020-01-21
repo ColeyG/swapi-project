@@ -23,13 +23,6 @@ anime({
 });
 
 async function fetchData(resource) {
-  const result = await fetch(`https://swapi.co/api/${resource}`, { method: 'GET', mode: 'cors' })
-    .then((resp) => resp.json())
-    .then((data) => data);
-  return result;
-}
-
-async function fetchDataAmbiguous(resource) {
   const result = await fetch(resource, { method: 'GET', mode: 'cors' })
     .then((resp) => resp.json())
     .then((data) => data);
@@ -73,14 +66,19 @@ const addCharacterCard = (name, description) => {
 };
 
 const initialize = () => {
-  fetchData('people/').then((data) => {
+  let amount = 0;
+  const minChars = 10;
+  fetchData('https://swapi.co/api/people/').then((data) => {
     data.results.forEach((character) => {
-      fetchDataAmbiguous(character.homeworld).then((data) => {
+      fetchData(character.homeworld).then((data) => {
         addCharacterCard(character.name, data.name);
+        amount++;
+        if (amount >= minChars) {
+          document.querySelector('.loading').style.opacity = 0;
+        }
       });
     });
   });
-  document.querySelector('.loading').style.opacity = 0;
 };
 
 initialize();
