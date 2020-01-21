@@ -43,6 +43,46 @@ h2 {
   }
 }
 
+.loading {
+  opacity: 1;
+  position: sticky;
+  pointer-events: none;
+  z-index: 40;
+  top: 0;
+  height: 100vh;
+  margin-bottom: -100vh;
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  overflow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  .load-body {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .load-ball {
+      width: 30px;
+      height: 30px;
+      background-color: $yellow;
+      border-radius: 5px;
+      margin: 10px;
+    }
+    .load-ball-1 {
+      transform: translateY(10px);
+    }
+    .load-ball-2 {
+      transform: translateY(20px);
+    }
+    .load-ball-3 {
+      transform: translateY(30px);
+    }
+  }
+}
+
 html {
   overflow-y: auto;
 }
