@@ -24,7 +24,9 @@ $teal: #619b8a;
 }
 
 html {
-  background-color: $black;
+  background-image: url(https://sm.ign.com/ign_nordic/news/s/star-wars-/star-wars-the-rise-of-skywalker-score-will-include-every-the_hgct.jpg);
+  background-size: cover;
+  overflow-y: auto;
 }
 
 h1,
@@ -85,18 +87,16 @@ h2 {
 
 .content-cards {
   width: 50%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: $green;
+  background-color: rgba($black, 0.5);
+  backdrop-filter: blur(8px);
   .card {
     max-width: 300px;
     margin: 10px;
   }
-}
-
-html {
-  overflow-y: auto;
 }
