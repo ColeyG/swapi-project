@@ -37,14 +37,14 @@ h2 {
   .navbar-item {
     color: $white;
     &:hover {
-      background-color: $teal;
+      background-color: $indigo;
       color: $yellow;
     }
   }
 }
 
 .loading {
-  opacity: 1;
+  opacity: 0;
   position: sticky;
   pointer-events: none;
   z-index: 40;
@@ -80,6 +80,20 @@ h2 {
     .load-ball-3 {
       transform: translateY(30px);
     }
+  }
+}
+
+.content-cards {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: $green;
+  .card {
+    max-width: 300px;
+    margin: 10px;
   }
 }
 
