@@ -74,13 +74,13 @@ const addCharacterCard = (name, description) => {
 
 const initialize = () => {
   fetchData('people/').then((data) => {
-    document.querySelector('.loading').style.opacity = 0;
     data.results.forEach((character) => {
       fetchDataAmbiguous(character.homeworld).then((data) => {
         addCharacterCard(character.name, data.name);
       });
     });
   });
+  document.querySelector('.loading').style.opacity = 0;
 };
 
 initialize();
