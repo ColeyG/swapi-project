@@ -29,6 +29,13 @@ async function fetchData(resource) {
   return result;
 }
 
+async function fetchDataAmbiguous(resource) {
+  const result = await fetch(resource, { method: 'GET', mode: 'cors' })
+    .then((resp) => resp.json())
+    .then((data) => data);
+  return result;
+}
+
 const createAndClassElement = (className) => {
   const element = document.createElement('div');
   element.className = className;
@@ -57,7 +64,7 @@ const addCharacterCard = (name, description) => {
   mediaContent.append(title);
   media.append(mediaContent);
   const contenta = createAndClassElement('content');
-  addText(contenta, description);
+  addText(contenta, `Homeworld: ${description}`);
   cardContent.append(media);
   cardContent.append(contenta);
   card.append(cardContent);
@@ -69,7 +76,9 @@ const initialize = () => {
   fetchData('people/').then((data) => {
     document.querySelector('.loading').style.opacity = 0;
     data.results.forEach((character) => {
-      addCharacterCard(character.name, 'asdf');
+      fetchDataAmbiguous(character.homeworld).then((data) => {
+        addCharacterCard(character.name, data.name);
+      });
     });
   });
 };
