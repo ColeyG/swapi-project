@@ -4,6 +4,7 @@ import 'babel-polyfill';
 import 'promise-polyfill/src/polyfill';
 import 'whatwg-fetch';
 import anime from 'animejs/lib/anime.es.js';
+import './canvas';
 
 const bezier = '.64,1.53,1,1.07';
 const content = document.querySelector('.content-cards');
@@ -48,8 +49,17 @@ const removeChildren = (node) => {
 
 const randomFromArray = (array) => array[Math.floor(array.length * Math.random())];
 
-const playCrawl = () => {
-  console.log('crawl');
+const playCrawl = (title, crawl) => {
+  if (rightContent.childNodes.length <= 1) {
+    const filmCrawlCon = createAndClassElement('crawl');
+    const filmTitle = document.createElement('h2');
+    const filmCrawl = document.createElement('p');
+    addText(filmTitle, title);
+    addText(filmCrawl, crawl);
+    filmCrawlCon.append(filmTitle);
+    filmCrawlCon.append(filmCrawl);
+    rightContent.append(filmCrawlCon);
+  }
 };
 
 const characterSelect = (films) => {
@@ -63,7 +73,9 @@ const characterSelect = (films) => {
     removeChildren(rightContent);
     const img = document.createElement('img');
     img.className = 'poster';
-    img.addEventListener('click', playCrawl, false);
+    img.addEventListener('click', ((e) => { e.preventDefault(); playCrawl(data.title, data.opening_crawl); }), false);
+    img.dataset.title = data.title;
+    img.dataset.crawl = data.opening_crawl;
     img.src = `images/posters/${data.title.toLowerCase().replace(/ /g, '-')}.jpg`;
     rightContent.append(img);
   });

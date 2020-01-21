@@ -43,6 +43,20 @@ h2 {
   @include calistoga($color: $yellow, $size: 42pt);
 }
 
+#canvas {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: sticky;
+  top: 0;
+  margin-bottom: -100vh;
+  // border: 1px solid red;
+  background-color: $black;
+  z-index: -5;
+}
+
 .navbar {
   background-color: $indigo;
   .navbar-item {
@@ -124,6 +138,7 @@ h2 {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 .poster {
   width: 75%;
@@ -133,4 +148,18 @@ h2 {
 .loading-gif {
   width: 50%;
   margin: 30px;
+}
+.crawl {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  width: 60%;
+  margin-left: 20%;
+  margin-top: 10%;
+  background-color: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  padding: 10px;
+  p {
+    color: $white;
+  }
 }
