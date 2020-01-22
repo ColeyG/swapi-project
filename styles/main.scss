@@ -163,6 +163,9 @@ h2 {
   }
 }
 @media (max-width: break("large")) {
+  .logo {
+    font-size: 32pt;
+  }
   .primary-content {
     flex-direction: column-reverse;
   }
