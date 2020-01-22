@@ -103,9 +103,24 @@ const addCharacterCard = (name, description, films) => {
   content.append(link);
 };
 
+let charsLoaded = 11;
+
+const slowLoad = async () => {
+  await fetchData(`https://swapi.co/api/people/${charsLoaded}/`).then((data) => {
+    if (data.name) {
+      addCharacterCard(data.name, data.name, data.films);
+    }
+  });
+  charsLoaded++;
+  if (charsLoaded <= 88) {
+    slowLoad();
+  }
+  document.querySelector('.loading').style.opacity = 0;
+};
+
 const initialize = () => {
   let amount = 0;
-  const minChars = 10;
+  const minChars = 3;
   fetchData('https://swapi.co/api/people/').then((data) => {
     data.results.forEach((character) => {
       fetchData(character.homeworld).then((data) => {
@@ -117,6 +132,7 @@ const initialize = () => {
       });
     });
   });
+  slowLoad();
 };
 
 initialize();
