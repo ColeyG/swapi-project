@@ -33,7 +33,6 @@ $teal: #619b8a;
 }
 
 html {
-  // background-image: url(../images/background.jpg);
   background-size: cover;
   overflow-y: auto;
 }
@@ -52,13 +51,12 @@ h2 {
   position: sticky;
   top: 0;
   margin-bottom: -100vh;
-  // border: 1px solid red;
   background-color: $black;
   z-index: -5;
 }
 
 .navbar {
-  background-color: $indigo;
+  background-color: rgba($indigo, 0.5);
   .navbar-item {
     color: $white;
     &:hover {
@@ -159,6 +157,7 @@ h2 {
   background-color: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(8px);
   padding: 10px;
+
   p {
     color: $white;
   }

@@ -3938,7 +3938,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("var canvas = document.querySelector('#canvas');\nvar c = canvas.getContext('2d');\ncanvas.width = window.innerWidth;\ncanvas.height = window.innerHeight;\nc.beginPath();\nc.arc(100, 75, 50, 0, 2 * Math.PI);\nc.stroke();\n\n//# sourceURL=webpack:///./src/canvas.js?");
+eval("var canvas = document.querySelector('#canvas');\nvar c = canvas.getContext('2d');\ncanvas.width = window.innerWidth;\ncanvas.height = window.innerHeight;\nvar starAmount = 1000;\nvar starArray = [];\nvar star = document.getElementById('star');\n\nfunction Star(x, y) {\n  var _this = this;\n\n  this.x = x;\n  this.y = y;\n\n  this.update = function () {\n    _this.x++;\n\n    if (_this.x > canvas.width) {\n      _this.x = -10;\n    }\n\n    c.drawImage(star, _this.x, _this.y, 5, 5);\n  };\n}\n\nfunction newStar() {\n  var x = Math.random() * canvas.width;\n  var y = Math.random() * canvas.height;\n  starArray.push(new Star(x, y));\n}\n\nfor (var i = 0; i < starAmount; i++) {\n  newStar();\n}\n\nvar animate = function animate() {\n  requestAnimationFrame(animate);\n  c.fillStyle = '#16161d';\n  c.fillRect(0, 0, canvas.width, canvas.height);\n\n  for (var _i = 0; _i < starArray.length; _i++) {\n    starArray[_i].update();\n  }\n};\n\nanimate();\n\n//# sourceURL=webpack:///./src/canvas.js?");
 
 /***/ }),
 
