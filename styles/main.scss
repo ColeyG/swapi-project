@@ -67,7 +67,7 @@ h2 {
 }
 
 .loading {
-  opacity: 0;
+  opacity: 1;
   position: sticky;
   pointer-events: none;
   z-index: 40;
@@ -115,8 +115,6 @@ h2 {
   flex-direction: row;
 }
 .content-cards {
-  background-color: rgba($black, 0.5);
-  backdrop-filter: blur(8px);
   width: 50%;
   height: 100%;
   display: flex;
@@ -126,6 +124,8 @@ h2 {
   flex-wrap: wrap;
   .card {
     animation: 0.2s ease-out 0s 1 flipIn;
+    background-color: rgba($white, 0.5);
+    backdrop-filter: blur(5px);
     max-width: 300px;
     margin: 10px;
   }
@@ -149,8 +149,8 @@ h2 {
 }
 .crawl {
   position: absolute;
-  top: 8px;
-  left: 16px;
+  top: 0;
+  left: 0;
   width: 60%;
   margin-left: 20%;
   margin-top: 10%;
@@ -160,5 +160,27 @@ h2 {
 
   p {
     color: $white;
+  }
+}
+@media (max-width: break("large")) {
+  .primary-content {
+    flex-direction: column-reverse;
+  }
+  .content-cards {
+    width: 100%;
+  }
+  .right-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: break("small")) {
+  .card-link {
+    width: 100%;
+  }
+  .content-cards .card {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
   }
 }
